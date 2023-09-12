@@ -1,53 +1,102 @@
+@font-face {
+    font-family: 'VCR';
+    src: url('../assets/fonts/VCR_ODS.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Calculator';
+    src: url('../assets/fonts/Calculator.ttf');
+}
+
+:root {
+    --gris-oscuro: #111111;
+    --btn-gris-oscuro: #3a3a3a;
+    --gris-claro: #d6d6d6;
+    --btn-gris-claro: #727272;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+    
+    /* color: #ffff; */
 }
 
 body {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
+    background-image: url(../img/escritorio_oscuro.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    /* background-color: #454545; */
 }
 
-.calculadora {
-    color: white;
-    width: 350px;
-    max-width: 100%;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: .5rem;
-}
-
-.pantalla {
-    grid-column: 1 / -1;
-    padding: 1.5rem;
-    font-size: 2rem;
-    text-align: right;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
-    font-weight: 600;
-}
-
-.btn__calc {
-    color: white;
-    border: 0;
-    padding: 1.5rem .5rem;
+.contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: .5rem;
-    cursor: pointer;
+    height: 100vh;
 }
 
-#cero {
+.calculadora {
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: 160px repeat(5, 75px);
+    background-color: var(--gris-oscuro);
+    padding: 15px;
+    border-radius: 32px;
+    box-shadow: 15px 10px 0px 5px #00000033;
+}
+
+button {
+    font-family: "VCR";
+    cursor: pointer;
+    margin: 5px;
+    padding: 0;
+    border-radius: 32px;
+    font-size: 1.5em;
+    border: 0;
+    background-color: var(--btn-gris-oscuro);
+    box-shadow: 5px 5px 10px -3px #00000040, -5px -5px 15px 3px #00000040;
+
+}
+
+button:active {
+    background-color: #2b947c;
+
+}
+
+button:focus {
+    outline: none;
+}
+
+.display {
+    font-family: "Calculator";
+    color: rgb(121, 242, 0);
+    grid-column: 1 / -1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    background-color: #1b1b1b;
+    border-radius: 16px;
+    margin: 10px 10px 20px 10px;
+    text-align: end;
+    justify-content: space-between;
+    word-break: break-all;
+    box-shadow: 0px 0px 0px 10px #00000033;
+}
+
+.column-2 {
     grid-column: span 2;
 }
 
-#igual {
-    grid-row: span 2;
+#valor-actual {
+    font-size: 1.5em;
+}
+
+#valor-anterior {
+    font-size: 2em;
+}
+
+.numero {
+    background-color: var(--btn-gris-oscuro);
 }
